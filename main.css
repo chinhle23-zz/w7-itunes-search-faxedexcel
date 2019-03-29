@@ -31,8 +31,12 @@ img {
     margin: 0rem, 1rem, 1rem, 1rem;
 }
 
-.search_field h1{
+.search_field h1 {
     padding-right: 1rem;
+}
+
+#search_term {
+    width: 20rem;
 }
 
 .input_box {

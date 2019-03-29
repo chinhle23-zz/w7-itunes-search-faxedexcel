@@ -8,8 +8,8 @@ function querySelectA(selector) {
     return document.querySelectorAll(selector);
 }
 
-function getSongs(artist) {
-    return fetch(`https://itunes-api-proxy.glitch.me/search?term=${encodeURIComponent(artist)}&limit=100&entity=song`)
+function getSongs(search) {
+    return fetch(`https://itunes-api-proxy.glitch.me/search?term=${encodeURIComponent(search)}&limit=100&entity=song`)
         // 'fetch()' takes an API URL as an argument and returns a 'promise'
         // 'promise' has a method called 'then()' that we can give a callback function
         // 'then()' method can be chained together
@@ -30,6 +30,10 @@ function updateSongs(artist) {
         console.log(songList)
         const songListDiv = querySelect('.song_list');
         songListDiv.innerText = "";
+        const searchTermDiv = querySelect('#search_term');
+        const searchTerm = querySelect('.input_box');
+        searchTermDiv.innerHTML = `Search term: "${searchTerm.value}"`;
+        searchTerm.value = "";
         for (let song of songList.results) {
             const songInfoDiv = document.createElement('div');
 
@@ -39,8 +43,8 @@ function updateSongs(artist) {
             const albumDiv = document.createElement('div');
             const artistDiv = document.createElement('div');
             
+            
             songInfoDiv.classList.add("song_info");
-
             imageDiv.innerHTML = `<img data-audio-id="audio-id${songList.results.indexOf(song)}" class="song_image" src="${song.artworkUrl100}" alt="${song.collectionName}">`
             songAudio.id = `audio-id${songList.results.indexOf(song)}`
             songAudio.classList.add("song_audio");
@@ -82,8 +86,9 @@ function playSong() {
 }
 
 function main() {
-    querySelect('#artist').addEventListener('change', function(event) {
+    querySelect('#search').addEventListener('change', function(event) {
         updateSongs(event.target.value)
+        
     });
     playSong();
 }
