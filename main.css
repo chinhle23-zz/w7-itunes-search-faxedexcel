@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+.main {
+    padding: 0rem 2rem;
+    background-image: url(https://i.ytimg.com/vi/aAQPc4lnQMM/maxresdefault.jpg);
+    background-size: 150%;
+}
+.container {
+    width: 55rem;
+    background-color: darkmagenta;
+    color: white;
+    margin: auto;
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search_field {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0rem, 1rem, 1rem, 1rem;
+}
+
+.search_field h1{
+    padding-right: 1rem;
+}
+
+.input_box {
+    border: 3px solid darkblue;
+    font-weight: bold;
+    color: darkblue;
+    height: 2rem;
+    width: 20rem;
+}
+
+.song_list {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: black;
+}
+
+.song_info {
+    padding: 1rem;
+    width: 20rem;
+    max-width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    color: lightblue;
+    font-size: .75rem;
+}
