@@ -63,6 +63,10 @@ img {
     flex-direction: column;
 }
 
+.song_info:hover {
+    background-color: blue;
+}
+
 .label {
     color: lightblue;
     font-size: .75rem;
