@@ -35,16 +35,27 @@ img {
     padding-right: 1rem;
 }
 
-#search_term {
-    width: 20rem;
-}
-
 .input_box {
     border: 3px solid darkblue;
     font-weight: bold;
     color: darkblue;
     height: 2rem;
     width: 20rem;
+}
+
+.search_filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    width: auto;
+}
+
+#search_term {
+    margin-right: 1rem;
+}
+
+#filter input{
+    margin-left: .5rem;
 }
 
 .song_list {
