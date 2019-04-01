@@ -24,8 +24,8 @@ function getSongs(search) {
         })
 }  
 
-function updateSongs(artist) {
-    getSongs(artist)
+function updateSongs(search) {
+    getSongs(search)
     .then(function (songList) {
         console.log(songList)
         const songListDiv = querySelect('.song_list');
@@ -34,6 +34,7 @@ function updateSongs(artist) {
         const searchTerm = querySelect('.input_box');
         searchTermDiv.innerHTML = `Search term: "${searchTerm.value}"`;
         searchTerm.value = "";
+        createFilterButtons();
         for (let song of songList.results) {
             const songInfoDiv = document.createElement('div');
 
@@ -65,6 +66,17 @@ function updateSongs(artist) {
             songListDiv.appendChild(songInfoDiv);
         }
     })
+}
+
+function createFilterButtons() {
+    const filterDiv = querySelect('#filter');
+    filterDiv.innerText = "";
+    filterDiv.innerHTML = `Filter by:  
+    <input type="radio" id="none" name="song_filter" value="none" checked> <label for="none">None</label>
+    <input type="radio" id="track" name="song_filter" value="track"> <label for="track">Track</label>  
+    <input type="radio" id="artist" name="song_filter" value="artist"> <label for="artist">Artist</label>  
+    <input type="radio" id="album" name="song_filter" value="album"> <label for="album">Album</label>     
+    `;
 }
 
 function playSong() {
